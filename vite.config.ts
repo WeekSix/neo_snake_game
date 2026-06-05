@@ -5,10 +5,11 @@ import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
+  // Derive a sensible `base` for GitHub Pages: prefer explicit env.BASE_PATH,
+  // otherwise default to your actual repository name path '/neo_snake_game/'.
+  // If you want a dynamic inference instead, set BASE_PATH in the workflow.
   return {
-    // Ensure correct asset paths when deploying to GitHub Pages.
-    // Set the base path from env.BASE_PATH or default to the repo name path.
-    base: env.BASE_PATH || '/neon-snake/',
+    base: env.BASE_PATH || '/neo_snake_game/',
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
