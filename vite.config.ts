@@ -6,6 +6,9 @@ import {defineConfig, loadEnv} from 'vite';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
+    // Ensure correct asset paths when deploying to GitHub Pages.
+    // Set the base path from env.BASE_PATH or default to the repo name path.
+    base: env.BASE_PATH || '/neon-snake/',
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
