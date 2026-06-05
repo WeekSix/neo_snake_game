@@ -1,0 +1,5 @@
+{
+  "name": "Neon Snake",
+  "description": "A polished, high-performance cyberpunk-themed Snake game built with React and Canvas.",
+  "requestFramePermissions": []
+}
